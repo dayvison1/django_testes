@@ -13,5 +13,5 @@ class Empresa(models.Model):
     celular = models.CharField(max_length=255)
     email = models.EmailField()
     dataCadastroEmp = models.DateTimeField(auto_now_add=True)
-    dataUpdateEm = models.DateTimeField(auto_now=True)
+    dataUpdateEmp = models.DateTimeField(auto_now=True)
     
