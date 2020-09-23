@@ -13,5 +13,12 @@ class Empresa(models.Model):
     celular = models.CharField(max_length=255)
     email = models.EmailField()
     dataCadastroEmp = models.DateTimeField(auto_now_add=True)
-    dataUpdateEmp = models.DateTimeField(auto_now=True)
     
+    def __str__(self):
+        return self.nomeEmpresa
+    
+class Horario(models.Model):
+    hora = models.CharField(max_length=5)
+    empresa = models.ForeignKey(Empresa, on_delete=models.PROTECT)
+    def __str__(self):
+        return self.hora
