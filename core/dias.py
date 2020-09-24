@@ -11,4 +11,4 @@ def invertDias(dia):
 lista_dias=[invertDias(data_de_hoje)]
 for d in dias_semana.range('days'):
     lista_dias.append(invertDias(d))
-print(lista_dias)
+#print(lista_dias)
