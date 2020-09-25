@@ -1,5 +1,6 @@
 import pendulum as pl
 
+
 data_de_hoje = pl.now().in_timezone('America/Fortaleza')
 inicio_semana = data_de_hoje.start_of('week')
 fim_semana = data_de_hoje.end_of('week')

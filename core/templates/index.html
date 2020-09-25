@@ -29,17 +29,35 @@
                 {%for i in hor%}
                 <tr>
                     <th class="table-active" scope="row">{{i}}</th>
-                    <td><button type="button" class="btn btn-success btn-sm btn-block">Disponível</button></td>
-                    <td><button type="button" class="btn btn-success btn-sm btn-block">Disponível</button></td>
-                    <td><button type="button" class="btn btn-success btn-sm btn-block">Disponível</button></td>
-                    <td><button type="button" class="btn btn-success btn-sm btn-block">Disponível</button></td>
-                    <td><button type="button" class="btn btn-success btn-sm btn-block">Disponível</button></td>
-                    <td><button type="button" class="btn btn-success btn-sm btn-block">Disponível</button></td>
-                    <td><button type="button" class="btn btn-secondary btn-sm btn-block">Indisponível</button></td>
+                    {%for j in '1234567'%}
+                        <td><button type="button" class="btn btn-success btn-sm btn-block">{{j}}</button></td>
+                        {%endfor%}
+                    
                 </tr>
                 {%endfor%}
             </tbody>
-        
+
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Falar com @mdo</button>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Nova mensagem</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST">
+                            {% csrf_token %}
+                            {{form.as_p}}
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                <button type="submit" class="btn btn-success" >Agendar</button>
+                              </div>
+                            
+                        </form>    
+                    </div>
          
               
         
