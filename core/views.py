@@ -8,17 +8,25 @@ from core import dias
 def index(request): 
     empresa = Empresa.objects.all()
     horarios = Horario.objects.all()
-    datas = dias.lista_dias
+    primeiraSemana = dias.primeira_semana
+    segundaSemana = dias.segunda_semana
+    terceiraSemana = dias.terceira_semana
+    quartaSemana = dias.quarta_semana
     if str(request.method) == 'POST':
         form = VagasModelForms(request.POST)
         if form.is_valid():
-           
-           form.save()
-            #return redirect('')
+            form.save()
+
 
     else:
         form = VagasModelForms()
     
-    context = {'emp':empresa,'hor':horarios,'dt': datas,'form':form}
+    context = {'emp':empresa,
+    'hor':horarios,
+    'semana1': primeiraSemana,
+    'semana2': segundaSemana,
+    'semana3': terceiraSemana,
+    'semana4': quartaSemana,
+    'form':form}
     return render(request,'index.html',context)
 

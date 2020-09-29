@@ -35,12 +35,14 @@ class Horario(models.Model):
 listaServicos = []
 l=[]
 for i in Servico.objects.all():
+    i=str(i)
     listaServicos.append(tuple((i,i)))
 
-print('aaaaa', listaServicos)
+
+
 
 class Vagas(models.Model):
-    SERVICOS=(('a','Aaa'),('b',"B"))
+    SERVICOS=(('ca','Aaa'),('cb',"Bbb"))
     
     nomeCliente = models.CharField(max_length=255)
     telefoneCliente = models.CharField(max_length=255)

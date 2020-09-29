@@ -1,4 +1,5 @@
 {%load static%}
+{%load custom_filter_tag%}
 <!DOCTYPE html>
 
 <html lang="pt-br">
@@ -12,17 +13,21 @@
 <body>
     <div class="container">
         <h1>{{emp.0}}</h1>
+        
+        
+        <button type="button" class="btn btn-warning" id="botaoverde">{{emp.0}}</button>
+        
         <table class="table table-bordered table-hover">
             <thead>
                 <tr class="table-active">
                     <th scope="col">Horários</th>
-                    <th scope="col">Segunda - {{dt.1}}</th>
-                    <th scope="col">Terça - {{dt.2}}</th>
-                    <th scope="col">Quarta - {{dt.3}}</th>
-                    <th scope="col">Quinta - {{dt.4}}</th>
-                    <th scope="col">Sexta - {{dt.5}}</th>
-                    <th scope="col">Sábado - {{dt.6}}</th>
-                    <th scope="col">Domingo - {{dt.7}}</th>
+                    <th scope="col">Segunda - {{semana1.1}}</th>
+                    <th scope="col">Terça - {{semana1.2}}</th>
+                    <th scope="col">Quarta - {{semana1.3}}</th>
+                    <th scope="col">Quinta - {{semana1.4}}</th>
+                    <th scope="col">Sexta - {{semana1.5}}</th>
+                    <th scope="col">Sábado - {{semana1.6}}</th>
+                    <th scope="col">Domingo - {{semana1.7}}</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,8 +35,10 @@
                 <tr>
                     <th class="table-active" scope="row">{{i}}</th>
                     {%for j in '1234567'%}
-                        <td><button type="button" class="btn btn-success btn-sm btn-block">{{j}}</button></td>
-                        {%endfor%}
+                        
+                        <td><button type="button" class="btn btn-success btn-sm btn-block" id="b">{{j}}</button></td>
+                        
+                    {%endfor%}
                     
                 </tr>
                 {%endfor%}
