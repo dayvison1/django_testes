@@ -43,10 +43,13 @@ for i in Servico.objects.all():
 
 class Vagas(models.Model):
     SERVICOS=(('ca','Aaa'),('cb',"Bbb"))
+    STATUS=(('Indisponível','Indisponível'),('Disponível','Disponível'),('Reservado','Reservado'))
     
     nomeCliente = models.CharField(max_length=255)
     telefoneCliente = models.CharField(max_length=255)
     servicoCliente = models.CharField(max_length=255,choices=listaServicos)
+    idVaga = models.CharField(max_length=255)
+    statusVaga = models.CharField(max_length=255,choices=STATUS)
     def __str__(self):
         return self.nomeCliente
 

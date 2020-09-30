@@ -1,5 +1,6 @@
 {%load static%}
-{%load custom_filter_tag%}
+{% load custom_filter_tags%}
+
 <!DOCTYPE html>
 
 <html lang="pt-br">
@@ -13,9 +14,9 @@
 <body>
     <div class="container">
         <h1>{{emp.0}}</h1>
+        <h1>{%corBotao%}</h1>
         
-        
-        <button type="button" class="btn btn-warning" id="botaoverde">{{emp.0}}</button>
+        <button type="button" class="btn btn-{%mudaCor 'v' %}" id="botaoverde">{{emp.0}}</button>
         
         <table class="table table-bordered table-hover">
             <thead>
@@ -34,9 +35,10 @@
                 {%for i in hor%}
                 <tr>
                     <th class="table-active" scope="row">{{i}}</th>
-                    {%for j in '1234567'%}
+                    {%for j in listaux%}
                         
-                        <td><button type="button" class="btn btn-success btn-sm btn-block" id="b">{{j}}</button></td>
+                        
+                        <td><button type="button" class="btn btn-{%corBotao%} btn-sm btn-block" id="b">{%idBotao i semana1 j%}</button></td>
                         
                     {%endfor%}
                     

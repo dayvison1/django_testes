@@ -1,6 +1,3 @@
-from core.models import Empresa, Horario
+print("opaaaa")
 
 
-e =Empresa.objects.all()
-print(e)
-print('aaa')
