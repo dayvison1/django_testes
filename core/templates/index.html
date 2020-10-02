@@ -37,7 +37,7 @@
                         <th class="table-active" scope="row">{{i}}</th>
                         {%for j in listaux%}
 
-                            <td><button  type="button" class="btn btn-{%corBotao%} btn-sm btn-block" data-toggle="modal" data-target="#exampleModal">{%idBotao i semana1 j%}</button></td>                   
+                            <td><button  type="button" class="btn btn-{%corBotao%} btn-sm btn-block" data-toggle="modal" data-target="#exampleModal" onclick="setaDadosModal('{%idBotao i semana1 j%}')">{%idBotao i semana1 j%}</button></td>                   
                                 
                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -53,8 +53,9 @@
                                             {% csrf_token %}
                                             {{form.as_p}}
                                             <div class="modal-footer">
+                                                
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                                                <button type="submit" name="system" value={%idBotao i semana1 j%} form="systemForm" class="btn btn-success" >Agendar</button>
+                                                <button type="submit" name="campo" id="campo" class="btn btn-success" >Agendar</button>
                                             </div>
                                             
                                         </form>    
@@ -73,6 +74,11 @@
             <button type="button" class="btn btn-primary" id="opa" data-toggle="modal" data-target="#exampleModal" value="aa" >Falar com @mdo</button>
         </table>
     </div>
+    <script>
+        function setaDadosModal(valor) {
+            document.getElementById('campo').value = valor;
+        }
+    </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>

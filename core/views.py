@@ -15,7 +15,7 @@ def index(request):
     quartaSemana = dias.quarta_semana
     listaux = [1,2,3,4,5,6,7]
     labelid = request.POST.get("id",None)
-    system = request.POST.get('system',None)
+    system = request.POST.get('campo',None)
     
     c={}
     c['system']=system
