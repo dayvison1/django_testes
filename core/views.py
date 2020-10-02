@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.template.base import VARIABLE_ATTRIBUTE_SEPARATOR
 from .models import Empresa, Horario
 from .forms import VagasModelForms
 from core import dias
@@ -13,11 +14,18 @@ def index(request):
     terceiraSemana = dias.terceira_semana
     quartaSemana = dias.quarta_semana
     listaux = [1,2,3,4,5,6,7]
+    labelid = request.POST.get("id",None)
+    system = request.POST.get('system',None)
+    
+    c={}
+    c['system']=system
+    print(labelid)
     if str(request.method) == 'POST':
         form = VagasModelForms(request.POST)
         if form.is_valid():
             task = form.save(commit=False)
             task.statusVaga="Reservado"
+            task.idVaga=system
             task.save()
 
     else:
@@ -33,7 +41,7 @@ def index(request):
     'semana4': quartaSemana,
     'form':form,
     'listaux':listaux,
-    'teste':'warning'
+    'teste':labelid
     }
     return render(request,'index.html',context)
  

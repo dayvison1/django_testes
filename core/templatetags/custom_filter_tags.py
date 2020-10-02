@@ -29,3 +29,7 @@ def mudaCor(st):
         return 'success'
     else:
         return 'danger'
+
+@register.simple_tag
+def ativaBotao(x):
+    return x
