@@ -31,5 +31,7 @@ def mudaCor(st):
         return 'danger'
 
 @register.simple_tag
-def ativaBotao(x):
+def ativaBotao(i,lista,j):
+    x=idBotao(i,lista,j)
+    print(str(x))
     return x

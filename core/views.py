@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.template.base import VARIABLE_ATTRIBUTE_SEPARATOR
-from .models import Empresa, Horario
+from .models import Empresa, Horario, Vagas
 from .forms import VagasModelForms
 from core import dias
 
@@ -9,17 +9,15 @@ from core import dias
 def index(request): 
     empresa = Empresa.objects.all()
     horarios = Horario.objects.all()
+    #teste = Vagas.objects.all()
     primeiraSemana = dias.primeira_semana
     segundaSemana = dias.segunda_semana
     terceiraSemana = dias.terceira_semana
     quartaSemana = dias.quarta_semana
     listaux = [1,2,3,4,5,6,7]
-    labelid = request.POST.get("id",None)
     system = request.POST.get('campo',None)
-    
-    c={}
-    c['system']=system
-    print(labelid)
+    #print(teste)  
+  
     if str(request.method) == 'POST':
         form = VagasModelForms(request.POST)
         if form.is_valid():
@@ -41,7 +39,7 @@ def index(request):
     'semana4': quartaSemana,
     'form':form,
     'listaux':listaux,
-    'teste':labelid
+    'teste':Vagas.objects.filter(idVaga='sub')
     }
     return render(request,'index.html',context)
  

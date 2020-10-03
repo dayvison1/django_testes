@@ -46,12 +46,11 @@ class Vagas(models.Model):
     STATUS=(('Indisponível','Indisponível'),('Disponível','Disponível'),('Reservado','Reservado'))
     
     nomeCliente = models.CharField(max_length=255)
-    telefoneCliente = models.CharField(max_length=255)
+    telefoneCliente = models.CharField('telefone',max_length=255)
     servicoCliente = models.CharField(max_length=255,choices=listaServicos)
     idVaga = models.CharField(max_length=255)
     statusVaga = models.CharField(max_length=255,choices=STATUS)
     def __str__(self):
         return self.nomeCliente
-
 
 

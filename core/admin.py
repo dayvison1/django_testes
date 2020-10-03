@@ -16,6 +16,8 @@ class EmpresaAdmin(admin.ModelAdmin):
 
 class EmpresaAdmin(admin.ModelAdmin):
     inlines=[HorarioInline,ServicoInline]
+class VagasAdmin(admin.ModelAdmin):
+    list_display=('NomeCliente','telefone')
 
 admin.site.register(Empresa,EmpresaAdmin)
 admin.site.register(Servico)

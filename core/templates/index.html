@@ -14,9 +14,11 @@
 <body>
     <div class="container">
         <h1>{{emp.0}}</h1>
-        <h1>{{teste}}</h1>
+        <h1>{{teste.6.telefoneCliente}}</h1>
+        <h1>{{teste.0}}</h1>
+        <h1>{{teste.1}}</h1>
         <input type="button" class="btn btn-{%mudaCor 'v' %}" value="Click Me">
-        <button type="button" class="btn btn-{%mudaCor 'v' %}" id="botaoverde">{{emp.0}}</button>
+        <button type="button" class="btn btn-secondary" id="botaoverde" disabled>{{emp.0}}</button>
         
         <table class="table table-bordered table-hover">
             <thead>
@@ -36,7 +38,7 @@
                     <tr>
                         <th class="table-active" scope="row">{{i}}</th>
                         {%for j in listaux%}
-
+                            {%ativaBotao  i semana1 j %} 
                             <td><button  type="button" class="btn btn-{%corBotao%} btn-sm btn-block" data-toggle="modal" data-target="#exampleModal" onclick="setaDadosModal('{%idBotao i semana1 j%}')">{%idBotao i semana1 j%}</button></td>                   
                                 
                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
