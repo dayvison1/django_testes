@@ -21,10 +21,12 @@ def index(request):
     if str(request.method) == 'POST':
         form = VagasModelForms(request.POST)
         if form.is_valid():
-            task = form.save(commit=False)
-            task.statusVaga="Reservado"
-            task.idVaga=system
-            task.save()
+            form = form.save(commit=False)#usei o nome task so pra testa
+            form.statusVaga="Reservado"
+            form.idVaga=system
+            form.save()
+            form=VagasModelForms(request.POST)
+            
 
     else:
         form = VagasModelForms()

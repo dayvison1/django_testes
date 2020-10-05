@@ -25,6 +25,7 @@ segunda_semana = ListarDias(dataInicioSemana(data_de_hoje).add(days=7))
 terceira_semana = ListarDias(dataInicioSemana(data_de_hoje).add(days=14))
 quarta_semana = ListarDias(dataInicioSemana(data_de_hoje).add(days=21))
 
+"""
 #print(primeira_semana,segunda_semana,terceira_semana,quarta_semana)
 lista =["08:00","09:00","10:00"]
 for i in range(1,8):
@@ -33,7 +34,7 @@ for i in range(1,8):
 
 x =primeira_semana[8]+primeira_semana[1].replace('/','')+j.replace(':','')
 
-
+"""
 
 
 
