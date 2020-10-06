@@ -50,6 +50,10 @@ class Vagas(models.Model):
     servicoCliente = models.CharField(max_length=255,choices=listaServicos)
     idVaga = models.CharField(max_length=255)
     statusVaga = models.CharField(max_length=255,choices=STATUS)
+    #dataAgendamento = models.DateTimeField(auto_now_add=True)
+    #dataAgendada = models.CharField(max_length=255)
+    #diaAgendado = models.CharField(max_length=255)
+    #horarioAgendado = models.CharField(max_length=255)
     def __str__(self):
         return self.nomeCliente
 

@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.template.base import VARIABLE_ATTRIBUTE_SEPARATOR
 from .models import Empresa, Horario, Vagas
 from .forms import VagasModelForms
@@ -17,22 +18,7 @@ def index(request):
     listaux = [1,2,3,4,5,6,7]
     system = request.POST.get('campo',None)
     #print(teste)  
-  
-    if str(request.method) == 'POST':
-        form = VagasModelForms(request.POST)
-        if form.is_valid():
-            form = form.save(commit=False)#usei o nome task so pra testa
-            form.statusVaga="Reservado"
-            form.idVaga=system
-            form.save()
-            form=VagasModelForms(request.POST)
-            
-
-    else:
-        form = VagasModelForms()
-    
-    
-
+    form = VagasModelForms()
     context = {'emp':empresa,
     'hor':horarios,
     'semana1': primeiraSemana,
@@ -43,6 +29,27 @@ def index(request):
     'listaux':listaux,
     'teste':Vagas.objects.filter(idVaga='sub')
     }
+  
+    if str(request.method) == 'POST':
+        form = VagasModelForms(request.POST)
+        if form.is_valid():
+            form = form.save(commit=False)#usei o nome task so pra testa
+            form.statusVaga="Reservado"
+            form.idVaga=system
+            form.save()
+            messages.success(request, 'Agendamento realizado com sucesso.')
+            #form=VagasModelForms(request.POST)
+            
+            return render(request,'index.html',context)
+            
+            
+
+    else:
+        form = VagasModelForms()
+    
+    
+
+   
     return render(request,'index.html',context)
  
 
